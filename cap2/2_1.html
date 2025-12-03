@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2.1</title>
+</head>
+
+<body>
+    <h1>Programa Olá, você</h1>
+
+    <form>
+        <p>
+            <input type="text" id="inNome">
+            <input type="submit" value="Mostrar">
+        </p>
+    </form>
+
+    <h3></h3>
+
+    <script>
+        //CRIA REFERENCIA AO FORM E AO ELEMENTO H3
+
+
+        const frm = document.querySelector("form") //selecionou o form
+        const resp = document.querySelector("h3") //selecionou o h3
+
+        //CRIA UM OUVINTE DE EVENTO, ACIONANDO QUANDO O BOTÃO SUBMIT FOR CLICADO.
+
+        frm.addEventListener("submit", (e) => {
+            const nome = frm.inNome.value // pega o nome digitado no form. 
+            resp.innerText = `Olá, ${nome}` //exibe a resposta pegando a variável nome
+            e.preventDefault() //evita o envio do forms
+        })
+    </script>
+
+</body>
+
+</html>

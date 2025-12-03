@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Olá, você!</h1>
+
+    <form>
+        <p>Veículo:
+            <input type="text" id="inVeiculo">
+        </p>
+        <p>
+            Preço R$:
+            <input type="number" id="inPreco">
+        </p>
+        <input type="submit" value="Mostrar">
+
+    </form>
+    <!-- Colocamos uma id no h3 para poder selecionar ele e depois apresentar na web -->
+    <h3 id="outResp1"></h3>
+    <h3 id="outResp2"></h3>
+    <h3 id="outResp3"></h3>
+
+    <script>
+        // Vamos inserir o código JS aqui para mostrar os dados na página. Do h3
+        // Primeiro criamos a referência ao form e aos elementos de resposta. Utilizando os id's
+
+        const frm = document.querySelector("form");
+        const resp1 = document.querySelector("#outResp1"); //Selecionou o primeiro ID. O # é para id's
+        const resp2 = document.querySelector("#outResp2");
+        const resp3 = document.querySelector("#outResp3");
+
+        //Aqui se cria um eventListener que será ativado quando o botão for clicado ou seja o input submit
+
+        frm.addEventListener("submit", (e) => {
+            const veiculo = frm.inVeiculo.value
+            const preco = Number(frm.inPreco.value)
+
+            const entrada = preco * 0.5;
+            const parcela = (preco * 0.5) / 12
+
+            resp1.innerText = `Promoção: ${veiculo}`;
+            resp2.innerText = `Entrada de: ${entrada}`;
+            resp3.innerText = `+ 12vezes de: ${parcela}`;
+
+            e.preventDefault()
+
+            console.log(veiculo)
+            console.log(entrada)
+            console.log(parcela)
+
+        })
+    </script>
+</body>
+
+</html>
