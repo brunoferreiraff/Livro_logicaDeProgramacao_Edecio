@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>RestauranteJS</h1>
+
+    <form>
+        <p>Medicamento:
+            <input type="text" id="medicamento" required>
+        </p>
+        <p>
+            Preço:
+            <input type="number" id="inPreco" min="0" step="0.01" required>
+        </p>
+        <input type="submit" value="Mostrar">
+
+    </form>
+    <!-- Colocamos uma id no h3 para poder selecionar ele e depois apresentar na web -->
+    <h3 id="outResp1"></h3>
+    <h3 id="outResp2"></h3>
+    <h3 id="outResp3"></h3>
+
+
+    <script>
+        //cria referência ao form e ao elemento h3
+        const frm = document.querySelector("form");
+        const resp = document.querySelector("h3");
+
+        //cria um "ouvinte" de evento, acionando quando o botão subit for clicado
+
+        frm.addEventListener("submit", (e) => {
+            const medicamento = Number(frm.medicamento.value);
+            const preco = Number(frm.inPreco.value);
+
+            const promocao = Math.floor(preco * 2)
+            
+            
+            resp.innerText = `Leve 2 por apenas R$: ${promocao.toFixed(2)}`;
+
+            e.preventDefault() //evita o envio do forms.
+
+        })
+
+        e.preventDefault()
+    </script>
+</body>
+
+</html>
