@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <h1>RestauranteJS</h1>
+
+    <form>
+        <p>Buffet por quilo:
+            <input type="text" id="inQuilo" min="0" step="0.01" required>
+        </p>
+        <p>
+            Consumo do cliente:
+            <input type="number" id="inPeso" min="0" required>
+        </p>
+        <input type="submit" value="Mostrar">
+
+    </form>
+    <!-- Colocamos uma id no h3 para poder selecionar ele e depois apresentar na web -->
+    <h3 id="outResp1"></h3>
+    <h3 id="outResp2"></h3>
+    <h3 id="outResp3"></h3>
+
+    <script>
+            //cria referência ao form e ao elemento h3
+        const frm = document.querySelector("form");
+        const resp = document.querySelector("h3");
+
+        //cria um "ouvinte" de evento, acionando quando o botão subit for clicado
+
+        frm.addEventListener("submit", (e) => {
+            const quilo = Number(frm.inQuilo.value);
+                const consumo = Number(frm.inPeso.value);
+
+                const valor = (quilo / 1000) * consumo
+                resp.innerText = `O valor a ser pago é R$: ${valor.toFixed(0)}`;
+
+                e.preventDefault() //evita o envio do forms.
+            
+        })
+    </script>
 </body>
+
 </html>
