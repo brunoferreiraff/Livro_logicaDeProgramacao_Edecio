@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>SupermercadoJS</h1>
+
+    <form>
+        <p>Produto:
+            <input type="text" id="inProduto" required>
+        </p>
+        <p>
+            Preço:
+            <input type="number" id="inPreco" min="0" step="0.01" required>
+        </p>
+        <input type="submit" value="Mostrar">
+
+    </form>
+    <!-- Colocamos uma id no h3 para poder selecionar ele e depois apresentar na web -->
+    <h3 id="outResp1"></h3>
+    <h3 id="outResp2"></h3>
+    <h3 id="outResp3"></h3>
+
+
+    <script>
+        //cria referência ao form e ao elemento h3
+        const frm = document.querySelector("form");
+        const resp = document.getElementById("outResp1");
+        const resp2 = document.getElementById("outResp2");
+        
+
+        //cria um "ouvinte" de evento, acionando quando o botão subit for clicado
+
+        frm.addEventListener("submit", (e) => {
+            const produto = (frm.inProduto.value);
+            const preco = Number(frm.inPreco.value);
+
+            const promocao = Math.floor(preco * 2)
+            const promocao2 = promocao + (preco / 2)
+            
+            
+            resp.innerText = `${produto}  - promoção: Leve 3 por ${promocao2.toFixed(2)}`;
+            resp2.innerText = `O 3º produto sai a: ${promocao2}`;
+
+            e.preventDefault() //evita o envio do forms.
+
+        })
+
+        e.preventDefault()
+    </script>
+</body>
+
+</html>
