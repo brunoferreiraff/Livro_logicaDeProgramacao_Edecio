@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cine JS: Filmes em cartaz</h1>
+
+    <form action="">
+        <p>
+            Título do filme:
+            <input type="text" id="inTitulo" required>
+
+        </p>
+
+        <p>duração: 
+            <input type="number" id="inDuracao" required>
+        </p>
+        <input type="submit" value="converter a duração em horas e minutos">
+    </form>
+    <h3></h3>
+    <h4></h4>
+
+
+
+    <script>
+
+        const frm = document.querySelector("form");
+        const resp1 = document.querySelector("h3");
+        const resp2 = document.querySelector("h4");
+
+        frm.addEventListener("submit", (e) => {
+            const titulo = frm.inTitulo.value
+            const duracao = Number(frm.inDuracao.value) //transformei string em numero
+
+            const horas = Math.floor(duracao / 60);
+            const minutos = duracao % 60;
+
+            resp1.innerText = titulo;
+            resp2.innerText = `O filme possuí ${horas} horas e ${minutos} minutos`
+
+            e.preventDefault()
+        })
+    </script>
+</body>
+</html>
