@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 2.1</title>
+    <title>Document</title>
 </head>
-
 <body>
-    <h1>Programa Olá, você</h1>
+    <h1> Olá Você</h1>
 
-    <form>
-        <p>
+    <form action="">
+        <p>Nome: 
             <input type="text" id="inNome">
-            <input type="submit" value="Mostrar">
+            <input type="submit" value="mostrar">
         </p>
     </form>
-
     <h3></h3>
 
     <script>
-        //CRIA REFERENCIA AO FORM E AO ELEMENTO H3
+        //Aqui eu estou selecionando os campos no HTML para depois poder modifica-los.
+        const form = document.querySelector("form");
+        const resp = document.querySelector("h3");
 
-
-        const frm = document.querySelector("form") //selecionou o form
-        const resp = document.querySelector("h3") //selecionou o h3
-
-        //CRIA UM OUVINTE DE EVENTO, ACIONANDO QUANDO O BOTÃO SUBMIT FOR CLICADO.
-
-        frm.addEventListener("submit", (e) => {
-            const nome = frm.inNome.value // pega o nome digitado no form. 
-            resp.innerText = `Olá, ${nome}` //exibe a resposta pegando a variável nome
-            e.preventDefault() //evita o envio do forms
+        form.addEventListener("submit", (e) =>{
+            const nome = form.inNome.value //pegando o valor do nome no form.
+            resp.innerText = `Olá, ${nome}` //Na linha de cima salvamos o nome do form na variável nome e então mostramos ela aqui no h3;
+            e.preventDefault() //sempre colocar funcão.preventDefault para não enviar os dados e então atualizar a página.
         })
+
     </script>
-
 </body>
-
 </html>
