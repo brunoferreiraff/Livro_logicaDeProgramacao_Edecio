@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de peso</title>
+</head>
+
+<body>
+    <h1>Programa Calculo do Peso Ideal</h1>
+    <hr>
+    <form action="">
+        Nome: <input type="text" id="inName" required>
+        <p></p>
+        Sexo: <input type="radio" name="sexo" id="inMasculino" required>Masculino
+        <input type="radio" name="sexo" id="inFeminino" required>Feminino<p></p>
+        Altura: <input type="number" id="inAltura" step="0.01" required max="3">
+        <p></p>
+        <input type="submit" value="Calcular">
+        <input type="reset" value="Limpar texto">
+    </form>
+
+    <h3></h3>
+
+    <script>
+        const frm = document.querySelector("form");
+        const resp1 = document.querySelector("h3");
+
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const name = frm.inName.value;
+            const sexo = frm.inMasculino.checked;
+            const altura = Number(frm.inAltura.value);
+
+            let peso 
+            let sexo1
+            if(sexo){
+                sexo1 = "masculino"
+                peso = 22 * (altura * altura);
+                
+            }else{
+                sexo1 = "feminino"
+                peso = 21 * Math.pow(altura, 2);
+                
+            }
+            resp1.innerText = `Seu genero é ${sexo1} Seu peso ideal é = ${peso}`
+        })
+
+        frm.addEventListener("reset", () => {
+            resp1.innerText = ''
+        })
+
+
+        
+    </script>
+</body>
+
+</html>
