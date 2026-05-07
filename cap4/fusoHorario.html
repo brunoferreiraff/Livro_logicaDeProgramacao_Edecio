@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Programa Fuso Horário</h1>
+    <hr>
+
+    <form action=""> 
+        Hora no brasil (h:m):<input type="number" id="inHora" required step="0.01" min="0" max="23.59">
+        <p></p>
+        <input type="submit" value="Exibir Hora na França">
+    </form>
+
+    <h3></h3>
+
+    <script>
+
+        const frm = document.querySelector("form");
+        const resp = document.querySelector("h3");
+
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const horaBrasil = Number(frm.inHora.value);
+
+            let horaFranca = horaBrasil + 5;
+
+            if (horaFranca > 24){
+                horaFranca = horaFranca - 24
+            }
+
+            resp.innerText = `A hora na França é ${horaFranca}`
+        })
+    </script>
+</body>
+</html>
