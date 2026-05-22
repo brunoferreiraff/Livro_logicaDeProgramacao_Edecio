@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Teste 1</h1>
+    <form action="">
+        <input type="number" id="inNumero">
+        <input type="submit" value="Coloque o número">
+    </form>
+
+
+    <h3>
+
+    </h3>
+    <script>
+        const frm = document.querySelector("form");
+        const resp = document.querySelector("h3");
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let numero = Number(frm.inNumero.value)
+            let i = numero
+            while (i > 0) {
+                
+            }
+            //const numero = Number(frm.inNumero.value);
+
+            
+        })
+
+
+
+    </script>
+</body>
+
+</html>
