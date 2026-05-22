@@ -6,9 +6,11 @@ frm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const numero = Number(frm.inNumero.value);
-    let resposta 
-    for ( let i = 1; i >=10; i = i++){
-        resposta = `${resposta} + ${numero} x ${i} = ${numero * i} \n `
+    let resposta = ""
+    for ( let i = 1; i <=10; i = i + 1){
+        
+       resposta = `A tabuada do número ${numero} \n`
     }
+
     resp.innerText = resposta
 })
